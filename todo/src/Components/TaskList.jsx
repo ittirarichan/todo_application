@@ -17,7 +17,11 @@ const TaskList = () => {
 
 
     const deleteTask = (id) => {
-
+        axios.delete(`https://aswanth74.pythonanywhere.com/api/tasks/${id}/`)
+        .then(response => {
+            setTasks(tasks.filter (task => task.id !== id ));
+        })
+        .catch(error =>  console.log(error));
     };
 
 
